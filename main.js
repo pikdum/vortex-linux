@@ -1,12 +1,11 @@
-const { createWriteStream, mkdirSync, existsSync } = require("fs");
-const { pipeline } = require("stream");
-const { promisify } = require("util");
-const { exec } = require("child_process");
-const fs = require("fs");
-const os = require("os");
-const path = require("path");
-const tar = require("tar");
-const { program } = require("commander");
+import { exec } from "child_process";
+import { program } from "commander";
+import fs, { createWriteStream, existsSync, mkdirSync } from "fs";
+import os from "os";
+import path from "path";
+import { pipeline } from "stream";
+import tar from "tar";
+import { promisify } from "util";
 
 const BASE_DIR = path.join(os.homedir(), ".vortex-linux");
 
@@ -119,7 +118,7 @@ const launchVortex = async (args) => {
     "Vortex.exe"
   );
   let fullCommand = `"${vortexExe}"`;
-  if (args && (args != "-d " || args != "-i ")) {
+  if (args && (args !== "-d " || args !== "-i ")) {
     fullCommand += ` ${args}`;
   }
   await protonRun(fullCommand);
