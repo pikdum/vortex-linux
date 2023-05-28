@@ -100,3 +100,32 @@ export const setProton = (protonBuild) => {
     console.error("Error setting Proton:", error);
   }
 };
+
+export const protonRunUrl = async (downloadUrl, args) => {
+  const tempFilePath = path.join(os.tmpdir(), path.basename(downloadUrl));
+
+  let command = tempFilePath;
+  if (args) {
+    command += ` ${args}`;
+  }
+
+  try {
+    // Download the file
+    const response = await fetch(downloadUrl);
+    if (!response.ok) {
+      throw new Error(
+        `Failed to download file (${response.status} ${response.statusText})`
+      );
+    }
+    await pipelineAsync(response.body, fs.createWriteStream(tempFilePath));
+
+    // Run protonRun with the command
+    console.log(`Running: ${command}`);
+    await protonRun(command);
+  } finally {
+    // Clean up the temporary file
+    if (fs.existsSync(tempFilePath)) {
+      fs.unlinkSync(tempFilePath);
+    }
+  }
+};

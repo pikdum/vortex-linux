@@ -23,6 +23,9 @@ $ ./vortex-linux setConfig STEAM_RUNTIME_PATH $HOME/.steam/steam/steamapps/commo
 {
   "STEAM_RUNTIME_PATH": "/home/pikdum/.steam/steam/steamapps/common/SteamLinuxRuntime_sniper"
 }
+$ ./vortex-linux protonRunUrl https://download.visualstudio.microsoft.com/download/pr/85473c45-8d91-48cb-ab41-86ec7abc1000/83cd0c82f0cde9a566bae4245ea5a65b/windowsdesktop-runtime-6.0.16-win-x64.exe /q
+Running: /tmp/windowsdesktop-runtime-6.0.16-win-x64.exe /q
+...
 $ ./vortex-linux installVortex vortex-setup-1.8.3.exe
 ...
 $ ./vortex-linux setupVortexDesktop

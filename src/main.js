@@ -1,6 +1,6 @@
 import { program } from "commander";
 
-import { downloadProton, setProton } from "./lib/proton.js";
+import { downloadProton, setProton, protonRunUrl } from "./lib/proton.js";
 import {
   downloadVortex,
   installVortex,
@@ -82,6 +82,13 @@ program
   .action((key, value) => {
     setConfig(key, value);
     console.log(JSON.stringify(getConfig(), null, 2));
+  });
+
+program
+  .command("protonRunUrl <downloadUrl> [args]")
+  .description("Download and run an .exe")
+  .action(async (downloadUrl, args) => {
+    await protonRunUrl(downloadUrl, args);
   });
 
 program.parse(process.argv);
