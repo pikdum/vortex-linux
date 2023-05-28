@@ -30,4 +30,6 @@ jobs:
       - run: npm run build
         if: ${{ steps.release.outputs.release_created }}
       - run: gh release upload ${{ steps.release.outputs.tag_name }} ./bin/vortex-linux
+        env:
+          GH_TOKEN: ${{ github.token }}
         if: ${{ steps.release.outputs.release_created }}
