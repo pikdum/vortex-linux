@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: release-please
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: release-please-action
+          extra-files: src/main.js
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+      - if: ${{ steps.release.outputs.release_created }}
+        run:
+          gh release upload ${{ steps.release.outputs.tag_name }} ./bin/vortex-linux
