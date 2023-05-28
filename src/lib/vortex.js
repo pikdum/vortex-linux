@@ -54,7 +54,8 @@ export const installVortex = async (vortexInstaller) => {
     "vortex-installers",
     vortexInstaller
   );
-  await protonRun(vortexInstallerPath);
+  const command = `"${vortexInstallerPath}" /S`;
+  await protonRun(command);
 };
 
 export const setupVortexDesktop = () => {
