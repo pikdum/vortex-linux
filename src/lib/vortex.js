@@ -1,5 +1,12 @@
 import path from "path";
-import fs, { createWriteStream, existsSync, mkdirSync } from "fs";
+import {
+  chmodSync,
+  createWriteStream,
+  existsSync,
+  mkdirSync,
+  unlinkSync,
+  writeFileSync,
+} from "fs";
 import { promisify } from "util";
 import { pipeline } from "stream";
 
@@ -35,7 +42,7 @@ export const downloadVortex = async (downloadUrl) => {
 
     // Delete the file if it already exists
     if (existsSync(targetPath)) {
-      fs.unlinkSync(targetPath);
+      unlinkSync(targetPath);
     }
 
     // Download the file
@@ -80,9 +87,9 @@ export const setupVortexDesktop = () => {
     .replace("%%VORTEX_EXEC%%", `"${__filename}" launchVortex -- -d %u`)
     .replace("%%VORTEX_ICON%%", iconPath);
 
-  fs.writeFileSync(iconPath, iconData);
-  fs.writeFileSync(desktopPath, desktopData, "utf-8");
-  fs.chmodSync(desktopPath, "755");
+  writeFileSync(iconPath, iconData);
+  writeFileSync(desktopPath, desktopData, "utf-8");
+  chmodSync(desktopPath, "755");
 };
 
 export const launchVortex = async (args) => {

@@ -1,13 +1,13 @@
-import os from "os";
-import fs from "fs";
+import { homedir } from "os";
+import { readFileSync, writeFileSync } from "fs";
 import path from "path";
 
-export const BASE_DIR = path.join(os.homedir(), ".vortex-linux");
+export const BASE_DIR = path.join(homedir(), ".vortex-linux");
 
 export const getConfig = () => {
   const configPath = path.join(BASE_DIR, "config.json");
   try {
-    const fileContent = fs.readFileSync(configPath, "utf-8");
+    const fileContent = readFileSync(configPath, "utf-8");
     return JSON.parse(fileContent);
   } catch (error) {
     return {};
@@ -27,7 +27,7 @@ export const setConfig = (key, value) => {
   const configContent = JSON.stringify(config, null, 2);
 
   try {
-    fs.writeFileSync(configPath, configContent, "utf-8");
+    writeFileSync(configPath, configContent, "utf-8");
   } catch (error) {
     console.error("Error saving config file:", error);
   }

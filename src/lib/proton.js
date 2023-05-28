@@ -1,7 +1,14 @@
 import tar from "tar";
 import { exec } from "child_process";
 import path from "path";
-import fs, { createWriteStream, existsSync, mkdirSync } from "fs";
+import {
+  createWriteStream,
+  existsSync,
+  lstatSync,
+  mkdirSync,
+  symlinkSync,
+  unlinkSync,
+} from "fs";
 import os from "os";
 import { promisify } from "util";
 import { pipeline } from "stream";
@@ -33,8 +40,8 @@ export const downloadProton = async (downloadUrl) => {
     console.error("Error downloading Proton:", error);
   } finally {
     // Clean up the temporary file
-    if (fs.existsSync(tempFilePath)) {
-      fs.unlinkSync(tempFilePath);
+    if (existsSync(tempFilePath)) {
+      unlinkSync(tempFilePath);
     }
   }
 };
@@ -76,16 +83,16 @@ export const setProton = (protonBuild) => {
 
   try {
     // Remove existing symlink if it exists
-    if (fs.existsSync(activeSymlinkPath)) {
-      fs.unlinkSync(activeSymlinkPath);
+    if (existsSync(activeSymlinkPath)) {
+      unlinkSync(activeSymlinkPath);
     }
 
     const protonBuildPath = path.join(BASE_DIR, "proton-builds", protonBuild);
 
     // Verify that protonBuildPath is a valid directory
     if (
-      !fs.existsSync(protonBuildPath) ||
-      !fs.lstatSync(protonBuildPath).isDirectory()
+      !existsSync(protonBuildPath) ||
+      !lstatSync(protonBuildPath).isDirectory()
     ) {
       throw new Error(
         `Proton build directory '${protonBuild}' does not exist.`
@@ -93,7 +100,7 @@ export const setProton = (protonBuild) => {
     }
 
     // Create new symlink
-    fs.symlinkSync(protonBuildPath, activeSymlinkPath);
+    symlinkSync(protonBuildPath, activeSymlinkPath);
 
     console.log(`Proton set to: ${protonBuild}`);
   } catch (error) {
@@ -117,15 +124,15 @@ export const protonRunUrl = async (downloadUrl, args) => {
         `Failed to download file (${response.status} ${response.statusText})`
       );
     }
-    await pipelineAsync(response.body, fs.createWriteStream(tempFilePath));
+    await pipelineAsync(response.body, createWriteStream(tempFilePath));
 
     // Run protonRun with the command
     console.log(`Running: ${command}`);
     await protonRun(command);
   } finally {
     // Clean up the temporary file
-    if (fs.existsSync(tempFilePath)) {
-      fs.unlinkSync(tempFilePath);
+    if (existsSync(tempFilePath)) {
+      unlinkSync(tempFilePath);
     }
   }
 };
