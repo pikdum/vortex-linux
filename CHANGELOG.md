@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/pikdum/vortex-linux/compare/v1.2.0...v1.2.1) (2023-05-28)
+
+
+### Bug Fixes
+
+* create BASE_DIR when get/set config ([e38e499](https://github.com/pikdum/vortex-linux/commit/e38e499f719cd3dc166ec3cc17919d3aaa5a8e40))
+
 ## [1.2.0](https://github.com/pikdum/vortex-linux/compare/v1.1.0...v1.2.0) (2023-05-28)
 
 
