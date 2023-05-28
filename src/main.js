@@ -23,7 +23,9 @@ process.emit = function (name, data, ...args) {
   return originalEmit.apply(process, arguments);
 };
 
+// x-release-please-start-version
 program.version("0.0.1");
+// x-release-please-end
 
 program
   .command("downloadProton <downloadUrl>")
