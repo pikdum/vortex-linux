@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/pikdum/vortex-linux/compare/v1.1.0...v1.2.0) (2023-05-28)
+
+
+### Features
+
+* silent vortex install ([ab41002](https://github.com/pikdum/vortex-linux/commit/ab410026352b731bf01989d4a3095bd8e306375d))
+
 ## [1.1.0](https://github.com/pikdum/vortex-linux/compare/v1.0.2...v1.1.0) (2023-05-28)
 
 
