@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/pikdum/vortex-linux/compare/v1.0.2...v1.1.0) (2023-05-28)
+
+
+### Features
+
+* add protonRunUrl command ([6233d2d](https://github.com/pikdum/vortex-linux/commit/6233d2d5deffcada7d3145f258d05936591412ec))
+
 ## [1.0.2](https://github.com/pikdum/vortex-linux/compare/v1.0.1...v1.0.2) (2023-05-28)
 
 
