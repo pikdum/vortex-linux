@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/pikdum/vortex-linux/compare/v1.0.1...v1.0.2) (2023-05-28)
+
+
+### Bug Fixes
+
+* add token so it can upload ([493664e](https://github.com/pikdum/vortex-linux/commit/493664ed5d28751d9bf5d4af077e81c3b346f276))
+
 ## [1.0.1](https://github.com/pikdum/vortex-linux/compare/v1.0.0...v1.0.1) (2023-05-28)
 
 
