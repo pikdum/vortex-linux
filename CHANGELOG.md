@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/pikdum/vortex-linux/compare/v1.0.0...v1.0.1) (2023-05-28)
+
+
+### Bug Fixes
+
+* trigger release builds ([d135258](https://github.com/pikdum/vortex-linux/commit/d13525804a73b90a62f3c576792271543eeb9be6))
+
 ## 1.0.0 (2023-05-28)
 
 
