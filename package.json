@@ -11,7 +11,7 @@
   "author": "pikdum",
   "license": "ISC",
   "dependencies": {
-    "commander": "^10.0.1",
+    "commander": "^11.0.0",
     "esbuild": "^0.17.19",
     "postject": "^1.0.0-alpha.6",
     "tar": "^6.1.15"
