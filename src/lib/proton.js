@@ -75,6 +75,7 @@ export const protonRun = async (command) => {
     console.error(stderr);
   } catch (error) {
     console.error("Error executing command:", error);
+    throw error;
   }
 };
 
