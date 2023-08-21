@@ -18,6 +18,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
-    - run: cd test && ./setup-deps.sh
+    - run: cd test && sudo ./setup-deps.sh
     - run: npm run build
     - run: cd test && ./test-install.sh
