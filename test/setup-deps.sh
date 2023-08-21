@@ -4,8 +4,6 @@ set -euxo pipefail
 apt update
 apt install -y wget curl git python3 build-essential
 
-curl -L https://bit.ly/n-install | bash -s -- -y latest
-
 dpkg --add-architecture i386
 mkdir -pm755 /etc/apt/keyrings
 wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
