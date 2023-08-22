@@ -78,7 +78,7 @@ export const setupVortexDesktop = () => {
   const iconData = Buffer.from(vortexIcon.split(",")[1], "base64");
   const desktopData = vortexDesktop
     .replace("%%VORTEX_PATH%%", VORTEX_DIR)
-    .replace("%%VORTEX_EXEC%%", `"${__filename}" launchVortex -- -d %u`)
+    .replace("%%VORTEX_EXEC%%", `"${__filename}" launchVortex -- -d "%u"`)
     .replace("%%VORTEX_ICON%%", iconPath);
 
   writeFileSync(iconPath, iconData);
@@ -89,7 +89,6 @@ export const setupVortexDesktop = () => {
 export const launchVortex = async (args) => {
   const vortexExe = path.join(VORTEX_DIR, "Vortex.exe");
   let fullCommand = `"${vortexExe}"`;
-  console.log(`Launching Vortex: ${fullCommand}`);
 
   if (["-d", "-i"].includes(args?.[0]) && args?.length === 1) {
     console.info(`No url provided, ignoring ${args[0]}`);
@@ -97,5 +96,6 @@ export const launchVortex = async (args) => {
     fullCommand += ` ${args.join(" ")}`;
   }
 
+  console.log(`Launching Vortex: ${fullCommand}`);
   await protonRun(fullCommand);
 };
