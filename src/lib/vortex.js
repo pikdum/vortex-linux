@@ -90,7 +90,7 @@ export const launchVortex = async (args) => {
   const vortexExe = path.join(VORTEX_DIR, "Vortex.exe");
   let fullCommand = `"${vortexExe}"`;
 
-  if (["-d", "-i"].includes(args?.[0]) && args?.length === 1) {
+  if (["-d", "-i"].includes(args?.[0]) && !args?.[1]?.includes("nxm")) {
     console.info(`No url provided, ignoring ${args[0]}`);
   } else {
     fullCommand += ` ${args.join(" ")}`;
