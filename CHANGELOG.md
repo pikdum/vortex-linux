@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/pikdum/vortex-linux/compare/v1.3.2...v1.3.3) (2023-08-22)
+
+
+### Bug Fixes
+
+* command logging + url quoting ([84ce6a4](https://github.com/pikdum/vortex-linux/commit/84ce6a4a1ded0b2b0d3d3f8035ff9b0bb5c17884))
+
 ## [1.3.2](https://github.com/pikdum/vortex-linux/compare/v1.3.1...v1.3.2) (2023-08-22)
 
 
