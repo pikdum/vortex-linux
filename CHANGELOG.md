@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/pikdum/vortex-linux/compare/v1.2.2...v1.2.3) (2023-08-22)
+
+
+### Performance Improvements
+
+* try using GNU tar to extract proton ([09cbc2a](https://github.com/pikdum/vortex-linux/commit/09cbc2a3a97dd4397955d370bc127b18c0e7c727))
+
 ## [1.2.2](https://github.com/pikdum/vortex-linux/compare/v1.2.1...v1.2.2) (2023-08-22)
 
 

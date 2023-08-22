@@ -24,7 +24,7 @@ process.emit = function (name, data, ...args) {
 };
 
 // x-release-please-start-version
-program.version("1.2.2");
+program.version("1.2.3");
 // x-release-please-end
 
 program
