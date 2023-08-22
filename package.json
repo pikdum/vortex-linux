@@ -1,7 +1,7 @@
 {
   "name": "vortex-linux",
   "type": "module",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "",
   "main": "main.js",
   "scripts": {

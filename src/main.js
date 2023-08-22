@@ -23,7 +23,7 @@ process.emit = function (name, data, ...args) {
 };
 
 // x-release-please-start-version
-program.version("1.3.2");
+program.version("1.3.3");
 // x-release-please-end
 
 program
