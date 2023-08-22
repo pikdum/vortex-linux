@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.4](https://github.com/pikdum/vortex-linux/compare/v1.3.3...v1.3.4) (2023-08-22)
+
+
+### Bug Fixes
+
+* url detection for ignoring ([5fe9597](https://github.com/pikdum/vortex-linux/commit/5fe959772c2c919dfb477651d40ee7f9da986396))
+
 ## [1.3.3](https://github.com/pikdum/vortex-linux/compare/v1.3.2...v1.3.3) (2023-08-22)
 
 
