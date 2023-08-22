@@ -1,5 +1,5 @@
-import { homedir } from "os";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { homedir } from "os";
 import path from "path";
 
 export const BASE_DIR = path.join(homedir(), ".vortex-linux");

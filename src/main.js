@@ -1,14 +1,13 @@
 import { program } from "commander";
 
-import { downloadProton, setProton, protonRunUrl } from "./lib/proton.js";
+import { getConfig, setConfig } from "./lib/config.js";
+import { downloadProton, protonRunUrl, setProton } from "./lib/proton.js";
 import {
   downloadVortex,
   installVortex,
   launchVortex,
   setupVortexDesktop,
 } from "./lib/vortex.js";
-
-import { getConfig, setConfig } from "./lib/config.js";
 
 const originalEmit = process.emit;
 // eslint-disable-next-line

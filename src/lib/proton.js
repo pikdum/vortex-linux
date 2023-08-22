@@ -1,20 +1,12 @@
 import { exec } from "child_process";
-import path from "path";
-import {
-  createWriteStream,
-  existsSync,
-  lstatSync,
-  mkdirSync,
-  symlinkSync,
-  unlinkSync,
-} from "fs";
+import { existsSync, lstatSync, mkdirSync, symlinkSync, unlinkSync } from "fs";
 import os from "os";
+import path from "path";
 import { promisify } from "util";
-import { pipeline } from "stream";
 
 import { BASE_DIR, getConfig } from "./config.js";
+import { downloadFile, extractFile } from "./util.js";
 
-const pipelineAsync = promisify(pipeline);
 const execAsync = promisify(exec);
 
 export const downloadProton = async (downloadUrl) => {
@@ -27,19 +19,13 @@ export const downloadProton = async (downloadUrl) => {
       mkdirSync(extractPath, { recursive: true });
     }
 
-    // Download the file
-    console.log("Downloading Proton...");
-    const response = await fetch(downloadUrl);
-    await pipelineAsync(response.body, createWriteStream(tempFilePath));
-
-    // Extract the file using GNU tar
-    console.log("Extracting Proton...");
-    const extractCommand = `tar -xf ${tempFilePath} -C ${extractPath}`;
-    await execAsync(extractCommand);
+    await downloadFile(downloadUrl, tempFilePath);
+    await extractFile(tempFilePath, extractPath);
 
     console.log("Proton downloaded and extracted successfully!");
   } catch (error) {
     console.error("Error downloading and extracting Proton:", error);
+    throw error;
   } finally {
     // Clean up the temporary file
     if (existsSync(tempFilePath)) {
@@ -108,6 +94,7 @@ export const setProton = (protonBuild) => {
     console.log(`Proton set to: ${protonBuild}`);
   } catch (error) {
     console.error("Error setting Proton:", error);
+    throw error;
   }
 };
 
@@ -121,17 +108,14 @@ export const protonRunUrl = async (downloadUrl, args) => {
 
   try {
     // Download the file
-    const response = await fetch(downloadUrl);
-    if (!response.ok) {
-      throw new Error(
-        `Failed to download file (${response.status} ${response.statusText})`,
-      );
-    }
-    await pipelineAsync(response.body, createWriteStream(tempFilePath));
+    await downloadFile(downloadUrl, tempFilePath);
 
     // Run protonRun with the command
     console.log(`Running: ${command}`);
     await protonRun(command);
+  } catch (error) {
+    console.error("Error running protonRun:", error);
+    throw error;
   } finally {
     // Clean up the temporary file
     if (existsSync(tempFilePath)) {

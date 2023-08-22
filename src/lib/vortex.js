@@ -1,22 +1,17 @@
-import path from "path";
 import {
   chmodSync,
-  createWriteStream,
   existsSync,
   mkdirSync,
   unlinkSync,
   writeFileSync,
 } from "fs";
-import { promisify } from "util";
-import { pipeline } from "stream";
+import path from "path";
 
+import vortexDesktop from "../assets/vortex.desktop";
+import vortexIcon from "../assets/vortex.ico";
 import { BASE_DIR } from "./config.js";
 import { protonRun } from "./proton.js";
-
-import vortexIcon from "../assets/vortex.ico";
-import vortexDesktop from "../assets/vortex.desktop";
-
-const pipelineAsync = promisify(pipeline);
+import { downloadFile } from "./util.js";
 
 const VORTEX_DIR = path.join(
   BASE_DIR,
@@ -45,13 +40,12 @@ export const downloadVortex = async (downloadUrl) => {
       unlinkSync(targetPath);
     }
 
-    // Download the file
-    const response = await fetch(downloadUrl);
-    await pipelineAsync(response.body, createWriteStream(targetPath));
+    await downloadFile(downloadUrl, targetPath);
 
     console.log("Vortex downloaded successfully!");
   } catch (error) {
     console.error("Error downloading Vortex:", error);
+    throw error;
   }
 };
 
