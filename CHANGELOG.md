@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.2](https://github.com/pikdum/vortex-linux/compare/v1.2.1...v1.2.2) (2023-08-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v11 ([#12](https://github.com/pikdum/vortex-linux/issues/12)) ([10aa815](https://github.com/pikdum/vortex-linux/commit/10aa815a1149fd49152520385ef1914685a5e686))
+* **deps:** update dependency esbuild to ^0.19.0 ([#10](https://github.com/pikdum/vortex-linux/issues/10)) ([751c034](https://github.com/pikdum/vortex-linux/commit/751c03409b48d563924e5c1c61617976e03ea92e))
+* re-throw proton errors ([9283642](https://github.com/pikdum/vortex-linux/commit/92836423a5c77b2fff7efdae0d6b12787b2a9046))
+
 ## [1.2.1](https://github.com/pikdum/vortex-linux/compare/v1.2.0...v1.2.1) (2023-05-28)
 
 
