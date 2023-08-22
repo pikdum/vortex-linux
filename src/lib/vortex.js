@@ -25,7 +25,7 @@ const VORTEX_DIR = path.join(
   "drive_c",
   "Program Files",
   "Black Tree Gaming Ltd",
-  "Vortex"
+  "Vortex",
 );
 
 export const downloadVortex = async (downloadUrl) => {
@@ -59,7 +59,7 @@ export const installVortex = async (vortexInstaller) => {
   const vortexInstallerPath = path.join(
     BASE_DIR,
     "vortex-installers",
-    vortexInstaller
+    vortexInstaller,
   );
   const command = `"${vortexInstallerPath}" /S`;
   await protonRun(command);
@@ -70,7 +70,7 @@ export const setupVortexDesktop = () => {
     process.env.HOME,
     ".local",
     "share",
-    "applications"
+    "applications",
   );
   const iconPath = path.join(applicationsPath, "vortex.ico");
   const desktopPath = path.join(applicationsPath, "vortex.desktop");

@@ -96,7 +96,7 @@ export const setProton = (protonBuild) => {
       !lstatSync(protonBuildPath).isDirectory()
     ) {
       throw new Error(
-        `Proton build directory '${protonBuild}' does not exist.`
+        `Proton build directory '${protonBuild}' does not exist.`,
       );
     }
 
@@ -122,7 +122,7 @@ export const protonRunUrl = async (downloadUrl, args) => {
     const response = await fetch(downloadUrl);
     if (!response.ok) {
       throw new Error(
-        `Failed to download file (${response.status} ${response.statusText})`
+        `Failed to download file (${response.status} ${response.statusText})`,
       );
     }
     await pipelineAsync(response.body, createWriteStream(tempFilePath));
