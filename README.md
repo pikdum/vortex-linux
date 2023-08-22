@@ -5,6 +5,7 @@ wip cli for managing vortex on linux
 ## requirements
 
 - GNU tar
+- GNU Wget
 
 ## example
 
