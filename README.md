@@ -2,6 +2,10 @@
 
 wip cli for managing vortex on linux
 
+## requirements
+
+- GNU tar
+
 ## example
 
 ```console

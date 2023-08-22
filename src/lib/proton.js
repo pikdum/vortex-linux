@@ -1,4 +1,3 @@
-import tar from "tar";
 import { exec } from "child_process";
 import path from "path";
 import {
@@ -29,15 +28,18 @@ export const downloadProton = async (downloadUrl) => {
     }
 
     // Download the file
+    console.log("Downloading Proton...");
     const response = await fetch(downloadUrl);
     await pipelineAsync(response.body, createWriteStream(tempFilePath));
 
-    // Extract the file
-    await tar.x({ file: tempFilePath, cwd: extractPath });
+    // Extract the file using GNU tar
+    console.log("Extracting Proton...");
+    const extractCommand = `tar -xf ${tempFilePath} -C ${extractPath}`;
+    await execAsync(extractCommand);
 
-    console.log("Proton downloaded successfully!");
+    console.log("Proton downloaded and extracted successfully!");
   } catch (error) {
-    console.error("Error downloading Proton:", error);
+    console.error("Error downloading and extracting Proton:", error);
   } finally {
     // Clean up the temporary file
     if (existsSync(tempFilePath)) {
