@@ -9,5 +9,9 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  rules: {},
+  rules: {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+  },
+  plugins: ["simple-import-sort"],
 };
