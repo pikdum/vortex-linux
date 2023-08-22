@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/pikdum/vortex-linux/compare/v1.2.3...v1.3.0) (2023-08-22)
+
+
+### Features
+
+* axios; re-throw more errors ([a17029e](https://github.com/pikdum/vortex-linux/commit/a17029e9e52dce3285258e1d0a74210fefb2d239))
+
 ## [1.2.3](https://github.com/pikdum/vortex-linux/compare/v1.2.2...v1.2.3) (2023-08-22)
 
 
