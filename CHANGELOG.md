@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/pikdum/vortex-linux/compare/v1.3.0...v1.3.1) (2023-08-22)
+
+
+### Bug Fixes
+
+* wget instead of axios for reliability ([3b9f197](https://github.com/pikdum/vortex-linux/commit/3b9f1970dee1056293221e08532391a6500418f5))
+
 ## [1.3.0](https://github.com/pikdum/vortex-linux/compare/v1.2.3...v1.3.0) (2023-08-22)
 
 
