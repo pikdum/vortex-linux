@@ -89,6 +89,7 @@ export const setupVortexDesktop = () => {
 export const launchVortex = async (args) => {
   const vortexExe = path.join(VORTEX_DIR, "Vortex.exe");
   let fullCommand = `"${vortexExe}"`;
+  console.log(`Launching Vortex: ${fullCommand}`);
 
   if (["-d", "-i"].includes(args?.[0]) && args?.length === 1) {
     console.info(`No url provided, ignoring ${args[0]}`);
