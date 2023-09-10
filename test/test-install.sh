@@ -10,7 +10,7 @@ rm -rf ~/.vortex-linux/
 ../bin/vortex-linux downloadProton "$PROTON_URL"
 PROTON_BUILD=$(ls -1d "$HOME/.vortex-linux/proton-builds/"*/ | xargs -n 1 basename)
 ../bin/vortex-linux downloadVortex "$VORTEX_URL"
-VORTEX_INSTALLER=$(ls -1 "$HOME/.vortex-linux/vortex-installers/"*)
+VORTEX_INSTALLER=$(ls -1 "$HOME/.vortex-linux/vortex-installers/"* | xargs -n 1 basename)
 
 ../bin/vortex-linux setProton "$PROTON_BUILD"
 ../bin/vortex-linux protonRunUrl "$DOTNET_URL" /q
