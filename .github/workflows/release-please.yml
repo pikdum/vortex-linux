@@ -21,7 +21,7 @@ jobs:
           extra-files: src/main.js
       - uses: actions/checkout@v3
         if: ${{ steps.release.outputs.release_created }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
         if: ${{ steps.release.outputs.release_created }}
