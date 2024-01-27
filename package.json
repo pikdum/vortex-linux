@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^11.0.0",
-    "esbuild": "^0.19.0",
+    "esbuild": "^0.20.0",
     "postject": "^1.0.0-alpha.6"
   },
   "devDependencies": {
