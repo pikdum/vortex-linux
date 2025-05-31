@@ -1,5 +1,7 @@
 # vortex-linux
 
+> **⚠️ DEPRECATED**: This project is no longer maintained. See [PR #91](https://github.com/pikdum/steam-deck/pull/91) for more information.
+
 wip cli for managing vortex on linux
 
 ## requirements
